@@ -51,9 +51,9 @@ export default function WorkerRegister() {
           localStorage.setItem("user", JSON.stringify(data.user));
         }
 
-        navigate("/worker/dashboard");
+        navigate(ROUTES.WORKER_DASHBOARD);
       } else {
-        navigate("/worker/login");
+        navigate(ROUTES.WORKER_LOGIN);
       }
     } catch (err) {
       setError(err.message || "Unable to connect to the server.");

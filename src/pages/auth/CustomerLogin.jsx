@@ -45,7 +45,7 @@ export default function CustomerLogin() {
       }
 
       localStorage.setItem("role", "customer");
-      navigate("/customer/dashboard");
+      navigate(ROUTES.CUSTOMER_DASHBOARD);
     } catch (err) {
       setError(err.message || "Unable to connect to the server.");
     }

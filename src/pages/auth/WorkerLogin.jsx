@@ -48,7 +48,7 @@ export default function WorkerLogin() {
       }
 
       localStorage.setItem("role", "provider");
-      navigate("/worker/dashboard");
+      navigate(ROUTES.WORKER_DASHBOARD);
     } catch (err) {
       setError(err.message || "Unable to connect to the server.");
     }

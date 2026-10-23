@@ -50,9 +50,9 @@ export default function CustomerRegister() {
           localStorage.setItem("user", JSON.stringify(data.user));
         }
 
-        navigate("/customer/dashboard");
+        navigate(ROUTES.CUSTOMER_DASHBOARD);
       } else {
-        navigate("/login");
+        navigate(ROUTES.CUSTOMER_LOGIN);
       }
     } catch (err) {
         console.log(err)
