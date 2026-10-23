@@ -1,0 +1,39 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+    user: null,
+    token: localStorage.getItem("token"),
+    role: localStorage.getItem("role"),
+};
+
+const authSlice = createSlice({
+    name: "auth",
+    initialState,
+    reducers: {
+        loginSuccess: (state, action) => {
+            state.user = action.payload.user;
+            state.token = action.payload.token;
+            state.role = action.payload.role;
+
+            if (action.payload.token) {
+                localStorage.setItem("token", action.payload.token);
+            }
+
+            if (action.payload.role) {
+                localStorage.setItem("role", action.payload.role);
+            }
+        },
+
+        logout: (state) => {
+            state.user = null;
+            state.token = null;
+            state.role = null;
+
+            localStorage.removeItem("token");
+            localStorage.removeItem("role");
+        },
+    },
+});
+
+export const { loginSuccess, logout } = authSlice.actions;
+export default authSlice.reducer;
