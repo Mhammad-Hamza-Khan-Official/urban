@@ -30,6 +30,8 @@ import EditService from "../pages/worker/EditService";
 import DashboardAdmin from "../pages/admin/DashboardAdmin";
 import Unauthorized from "../pages/errors/Unauthorized";
 import NotFound from "../pages/errors/NotFound";
+import CustomerDashboardLayout from "../layouts/CustomerDashboardLayout";
+import WorkerDashboardLayout from "../layouts/WorkerDashboardLayout";
 
 
 
@@ -58,52 +60,56 @@ export default function AppRoutes() {
             />
 
             {/* Customer */}
-            <Route
-                path={R.CUSTOMER_DASHBOARD}
-                element={<Dashboard />}
-            />
-            <Route
-                path={R.SERVICES}
-                element={<Services />}
-            />
-            <Route
-                path={R.SERVICE_DETAILS()}
-                element={<ServiceDetails />}
-            />
-            <Route
-                path={R.BOOK_SERVICE()}
-                element={<BookService />}
-            />
-            <Route
-                path={R.MY_BOOKINGS}
-                element={<MyBookings />}
-            />
+            <Route element={<CustomerDashboardLayout />} >
+                <Route
+                    path={R.CUSTOMER_DASHBOARD}
+                    element={<Dashboard />}
+                />
+                <Route
+                    path={R.SERVICES}
+                    element={<Services />}
+                />
+                <Route
+                    path={R.SERVICE_DETAILS()}
+                    element={<ServiceDetails />}
+                />
+                <Route
+                    path={R.BOOK_SERVICE()}
+                    element={<BookService />}
+                />
+                <Route
+                    path={R.MY_BOOKINGS}
+                    element={<MyBookings />}
+                />
+            </Route>
 
             {/* Worker */}
-            <Route
-                path={R.WORKER_DASHBOARD}
-                element={<DashboardWorker />}
-            />
-            <Route
-                path={R.WORKER_CREATE_PROFILE}
-                element={<CreateProfile />}
-            />
-            <Route
-                path={R.WORKER_PROFILE}
-                element={<Profile />}
-            />
-            <Route
-                path={R.WORKER_SERVICES}
-                element={<MyServices />}
-            />
-            <Route
-                path={R.WORKER_CREATE_SERVICE}
-                element={<CreateService />}
-            />
-            <Route
-                path={R.WORKER_EDIT_SERVICE()}
-                element={<EditService />}
-            />
+            <Route element={<WorkerDashboardLayout />} >
+                <Route
+                    path={R.WORKER_DASHBOARD}
+                    element={<DashboardWorker />}
+                />
+                <Route
+                    path={R.WORKER_CREATE_PROFILE}
+                    element={<CreateProfile />}
+                />
+                <Route
+                    path={R.WORKER_PROFILE}
+                    element={<Profile />}
+                />
+                <Route
+                    path={R.WORKER_SERVICES}
+                    element={<MyServices />}
+                />
+                <Route
+                    path={R.WORKER_CREATE_SERVICE}
+                    element={<CreateService />}
+                />
+                <Route
+                    path={R.WORKER_EDIT_SERVICE()}
+                    element={<EditService />}
+                />
+            </Route>
 
             {/* Admin */}
             <Route
